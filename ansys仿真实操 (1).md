@@ -323,32 +323,3 @@ MultiZone会先分析实体拓扑，建立内部的虚拟Block，再对不同Blo
 ![图片](http://www.kdocs.cn/api/v3/office/copy/Mjd6UEgzaXFHMlp0YmtqMUdBaW84ZUpYOHZabnVKaWpJL3BUdDRQT2pQbitCNSttMTN3dmdEdkYwRU5ncHNBR29NWlJvWFYvTDhUcEl6dVhBa3hLbDZyRldhMzJhRzFBa3c4U3NwdWo5ZjB4eTVLTkhZZVFXVWFMTTVsSGhrSmdCNlkwYzJta25oZEw0K0Q2VlpmNmttay9xRUdEWkg4RHAzYzE5RHg4citxRlJiOHVORXZhV2ZadFB3Z1JDR1pYWTFwWkRwUlRGVDVmRkhFRDZtU3dHQjZhSDY5eHg1QUo5UGpwaG5OTUh4eTV1TzNPYmVPNHJCdzhqUDMzdmxQbHN3YXB1VHJRK01nPQ==/attach/object/OT7VY7ZKADQHC?&kso_type=image&kso_extra=eyJ0eXBlIjoiaW1hZ2UiLCJpZCI6Ik9UN1ZZN1pLQURRSEMiLCJvd25lciI6IjU2MTkwNzQzMzEyOSIsInJvdGF0ZSI6MCwic3RvcmFnZSI6ImJhc2UiLCJ3aWR0aCI6NjAxLCJoZWlnaHQiOjM1NH0)
 
 狭长三角形高度阈值默认约为最小尺寸的 **10%**，官方建议不超过最小尺寸的 **50%**。
-
-## case 1 机床主轴模态、随机振动仿真
-
-模态仿真研究内容：结构的固有振动特性，即结构在没有持续外部激励时，最容易以哪些频率和形态发生振动。其核心输出是固有频率和对应的振型，可用于识别共振风险，并为谐响应、随机振动和瞬态动力学分析提供基础。
-
-### 主要研究内容：
-
-- **固有频率分析**：计算结构前若干阶固有频率，确定容易发生共振的频率范围。
-
-- **振型分析**：观察各阶模态下结构的弯曲、扭转、拉伸或局部振动形式。
-
-- **薄弱位置识别**：根据振型中的高位移区域，判断潜在的振动敏感区和连接薄弱位置。
-
-- **结构参数影响**：研究材料、质量、刚度、尺寸、连接方式和边界条件对模态特性的影响。
-
-- **结构优化**：通过改变厚度、增加加强筋、调整支撑或降低局部质量，使固有频率避开工作激励频率。
-
-- **后续动力学分析**：将模态结果传递给谐响应、响应谱、随机振动或瞬态结构分析。
-
-### 基本流程：
-
-![图片](http://www.kdocs.cn/api/v3/office/copy/Mjd6UEgzaXFHMlp0YmtqMUdBaW84ZUpYOHZabnVKaWpJL3BUdDRQT2pQbitCNSttMTN3dmdEdkYwRU5ncHNBR29NWlJvWFYvTDhUcEl6dVhBa3hLbDZyRldhMzJhRzFBa3c4U3NwdWo5ZjB4eTVLTkhZZVFXVWFMTTVsSGhrSmdCNlkwYzJta25oZEw0K0Q2VlpmNmttay9xRUdEWkg4RHAzYzE5RHg4citxRlJiOHVORXZhV2ZadFB3Z1JDR1pYWTFwWkRwUlRGVDVmRkhFRDZtU3dHQjZhSDY5eHg1QUo5UGpwaG5OTUh4eTV1TzNPYmVPNHJCdzhqUDMzdmxQbHN3YXB1VHJRK01nPQ==/attach/object/6IOPDTRJABAA2?&kso_type=image&kso_extra=eyJ0eXBlIjoiaW1hZ2UiLCJpZCI6IjZJT1BEVFJKQUJBQTIiLCJvd25lciI6IjU2MTkwNzQzMzEyOSIsInJvdGF0ZSI6MCwic3RvcmFnZSI6ImJhc2UiLCJ3aWR0aCI6NzY4LCJoZWlnaHQiOjM2NH0)
-
-### 常见模态分析类型：
-
-![图片](http://www.kdocs.cn/api/v3/office/copy/Mjd6UEgzaXFHMlp0YmtqMUdBaW84ZUpYOHZabnVKaWpJL3BUdDRQT2pQbitCNSttMTN3dmdEdkYwRU5ncHNBR29NWlJvWFYvTDhUcEl6dVhBa3hLbDZyRldhMzJhRzFBa3c4U3NwdWo5ZjB4eTVLTkhZZVFXVWFMTTVsSGhrSmdCNlkwYzJta25oZEw0K0Q2VlpmNmttay9xRUdEWkg4RHAzYzE5RHg4citxRlJiOHVORXZhV2ZadFB3Z1JDR1pYWTFwWkRwUlRGVDVmRkhFRDZtU3dHQjZhSDY5eHg1QUo5UGpwaG5OTUh4eTV1TzNPYmVPNHJCdzhqUDMzdmxQbHN3YXB1VHJRK01nPQ==/attach/object/D3P6TTRJADQFS?&kso_type=image&kso_extra=eyJ0eXBlIjoiaW1hZ2UiLCJpZCI6IkQzUDZUVFJKQURRRlMiLCJvd25lciI6IjU2MTkwNzQzMzEyOSIsInJvdGF0ZSI6MCwic3RvcmFnZSI6ImJhc2UiLCJ3aWR0aCI6NzAxLCJoZWlnaHQiOjI5Mn0)
-
-
-
